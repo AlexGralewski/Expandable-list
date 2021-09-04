@@ -35,7 +35,6 @@ const ExpandableList = ({
   openBranches,
   setOpenBranches,
 }) => {
-
   return (
     <ul>
       {list.map((item, id) => {
@@ -47,22 +46,47 @@ const ExpandableList = ({
           default:
             _key = parentId + "." + (id + 1);
         }
-        const isLast = id === list.length -1  ? " last-child": "" 
+        const isLast = id === list.length - 1 ? " last-child" : "";
 
         if (item.children.length > 0) {
-          if (item.children[0].type === "radio") {
-
-          }else {
-
-          }
           return (
             <li key={_key}>
               <div
-                className={(item.level === 0 ? "list-header parent": "branch-header parent") + isLast + (item.isOpen ? " open" : " closed") + (" level-"+ item.level)}
+                className={
+                  (item.level === 0
+                    ? "list-header parent"
+                    : "branch-header parent") +
+                  isLast +
+                  (item.isOpen ? " open" : " closed") +
+                  (" level-" + item.level)
+                }
                 onClick={() => {
-                  item.isOpen = !item.isOpen;
-                  console.log(openBranches);
-                  setOpenBranches([...openBranches]);
+                  if (item.type === "radio") {
+                    item.isOpen = !item.isOpen;
+
+                    // const path = JSON.parse(pathS)
+                    const idString = _key.split(".").slice(0, -1);
+
+                    let pathS = "openBranches";
+                    idString.forEach((level) => {
+                      
+                      pathS += "[" + (Number(level) - 1) + "].children";
+                    });
+
+                    let path = eval(pathS);
+
+
+
+                    path.forEach((radioItem) => {
+                      if (radioItem.title !== item.title) {
+                        radioItem.isOpen = false;
+                      }
+                    });
+                    setOpenBranches([...openBranches]);
+                  } else {
+                    item.isOpen = !item.isOpen;
+                    setOpenBranches([...openBranches]);
+                  }
                 }}
               >
                 {icon(item)}
@@ -90,11 +114,18 @@ const ExpandableList = ({
             oddEven = "even";
           }
           return (
-            <div className={"branch-header non-parent wrapper " + oddEven  + isLast + (" level-"+ item.level)}>
+            <div
+              className={
+                "branch-header non-parent wrapper " +
+                oddEven +
+                isLast +
+                (" level-" + item.level)
+              }
+              key={_key}
+            >
               <div className="wrapper">
-
-              {listItemTitle(_key, item.level)}
-              <div>{item.title}</div>
+                {listItemTitle(_key, item.level)}
+                <div>{item.title}</div>
               </div>
             </div>
           );

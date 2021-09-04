@@ -9,25 +9,25 @@ const list = [
         title: "Pododdział 1",
         type: "radio",
         level: 1,
-        isOpen: false,
+        isOpen: true,
         children: [
           {
             title: "HR",
-            type: "checkbox",
+            type: "radio",
             level: 2,
             isOpen: true,
             children: [],
           },
           {
             title: "Marketing",
-            type: "checkbox",
+            type: "radio",
             level: 2,
             isOpen: true,
             children: [],
           },
           {
             title: "Analitycy",
-            type: "checkbox",
+            type: "radio",
             level: 2,
             isOpen: true,
             children: [
@@ -70,7 +70,7 @@ const list = [
           },
           {
             title: "Programiści",
-            type: "checkbox",
+            type: "radio",
             level: 2,
             isOpen: true,
             children: [

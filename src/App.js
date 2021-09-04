@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ExpandableList from "./components/ExpandableList";
 import list from "./data/list";
 
