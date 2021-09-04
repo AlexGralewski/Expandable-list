@@ -12,7 +12,9 @@
 }
 
 ul {
+  max-width: 500px;
   padding: 10px 25px;
+  padding-right: 0;
   list-style: none;
   cursor: default;
 }

@@ -6,6 +6,7 @@ $secondary-background-color: rgb(242, 242, 242);
   margin: 0;
   font-family: "Roboto Condensed", sans-serif;
   position: relative;
+  
 }
 
 #root {
@@ -15,7 +16,9 @@ $secondary-background-color: rgb(242, 242, 242);
 }
 
 ul {
+  max-width: 500px;
   padding: 10px 25px;
+  padding-right: 0;
   list-style: none;
   cursor: default;
 
