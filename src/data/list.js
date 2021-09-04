@@ -13,21 +13,21 @@ const list = [
         children: [
           {
             title: "HR",
-            type: "radio",
+            type: "checkbox",
             level: 2,
             isOpen: true,
             children: [],
           },
           {
             title: "Marketing",
-            type: "radio",
+            type: "checkbox",
             level: 2,
             isOpen: true,
             children: [],
           },
           {
             title: "Analitycy",
-            type: "radio",
+            type: "checkbox",
             level: 2,
             isOpen: true,
             children: [
@@ -70,7 +70,7 @@ const list = [
           },
           {
             title: "Programiści",
-            type: "radio",
+            type: "checkbox",
             level: 2,
             isOpen: true,
             children: [
